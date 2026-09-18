@@ -5,6 +5,7 @@ import { useCart } from '../hooks/useCart'
 import PageHero from '../components/layout/PageHero'
 import { Filter, Search as SearchIcon, ChevronDown, Shield, Loader2 } from 'lucide-react'
 import { Button } from '../components/ui/Button'
+import { apiUrl } from '../utils/api'
 
 const Products = () => {
   const { addToCart, addToWishlist, wishlist } = useCart()
@@ -49,7 +50,7 @@ const Products = () => {
           limit: 12,
           _t: Date.now() // Cache buster to avoid 304 stale data
         })
-        const res = await fetch(`/api/products?${params}`, {
+        const res = await fetch(apiUrl(`/api/products?${params}`), {
           cache: 'no-cache', // Force fresh fetch
           headers: { 'Cache-Control': 'no-cache' }
         })

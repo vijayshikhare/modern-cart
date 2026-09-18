@@ -5,6 +5,7 @@ import { User, Mail, Lock, Eye, EyeOff, Loader2, AlertCircle, CheckCircle, Arrow
 import { useAuth } from '../hooks/useAuth'
 import Input from '../components/ui/Input'
 import { Button } from '../components/ui/Button'
+import { apiUrl } from '../utils/api'
 
 const Register = () => {
   const { login, loading: authLoading } = useAuth()
@@ -52,7 +53,7 @@ const Register = () => {
     setFormLoading(true)
     
     try {
-      const res = await fetch('/api/auth/register', {
+      const res = await fetch(apiUrl('/api/auth/register'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

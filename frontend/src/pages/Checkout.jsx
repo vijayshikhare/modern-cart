@@ -6,6 +6,7 @@ import { useAuth } from '../hooks/useAuth'
 import Input from '../components/ui/Input'
 import { Button } from '../components/ui/Button'
 import PageHero from '../components/layout/PageHero'
+import { apiUrl } from '../utils/api'
 
 const Checkout = () => {
   const navigate = useNavigate()
@@ -60,7 +61,7 @@ const Checkout = () => {
         product: item.productId
       }))
 
-      const res = await fetch('/api/orders', {
+      const res = await fetch(apiUrl('/api/orders'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

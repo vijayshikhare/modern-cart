@@ -5,6 +5,7 @@ import { Mail, Lock, Eye, EyeOff, Loader2, AlertCircle, CheckCircle, ArrowLeft }
 import { useAuth } from '../hooks/useAuth'
 import Input from '../components/ui/Input'
 import { Button } from '../components/ui/Button'
+import { apiUrl } from '../utils/api'
 
 const Login = () => {
   const { login, loading: authLoading } = useAuth()
@@ -43,7 +44,7 @@ const Login = () => {
     setFormLoading(true)
     
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch(apiUrl('/api/auth/login'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

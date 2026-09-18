@@ -1,5 +1,6 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { useAuth } from './useAuth' // Import for token and user
+import { apiUrl } from '../utils/api'
 
 const CartContext = createContext(null)
 const AUTH_REQUIRED_MESSAGE = 'Please log in to continue.'
@@ -58,7 +59,7 @@ const useProvideCart = () => {
     }
 
     try {
-      const res = await fetch(url, config)
+      const res = await fetch(apiUrl(url), config)
       const payload = await res.json().catch(() => ({}))
       if (!res.ok) {
         throw new Error(payload.msg || `API Error: ${res.status} ${res.statusText}`)

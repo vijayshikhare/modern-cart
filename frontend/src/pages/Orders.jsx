@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { Package, Clock, CheckCircle, XCircle, ShoppingCart, ArrowLeft, Loader2, AlertCircle } from 'lucide-react'
 import { Button } from '../components/ui/Button'
+import { apiUrl } from '../utils/api'
 
 const Orders = () => {
   const { user, loading: authLoading } = useAuth()
@@ -18,7 +19,7 @@ const Orders = () => {
       setLoading(true)
       setError('')
       try {
-        const res = await fetch('/api/orders', {
+        const res = await fetch(apiUrl('/api/orders'), {
           headers: { Authorization: `Bearer ${token}` }
         })
         if (res.ok) {

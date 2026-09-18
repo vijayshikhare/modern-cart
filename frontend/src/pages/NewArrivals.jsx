@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import PageHero from '../components/layout/PageHero'
 import { Filter, Search as SearchIcon, ChevronDown, BadgeCheck, Sparkles, ArrowRight } from 'lucide-react' // Added ArrowRight
+import { apiUrl } from '../utils/api'
 
 const NewArrivals = () => {
   const [searchParams] = useSearchParams()
@@ -16,7 +17,7 @@ const NewArrivals = () => {
   useEffect(() => {
     const fetchNewArrivals = async () => {
       try {
-        const res = await fetch('/api/products?limit=36&sort=relevance')
+        const res = await fetch(apiUrl('/api/products?limit=36&sort=relevance'))
         if (!res.ok) return
         const data = await res.json()
         setProducts(data.products || [])

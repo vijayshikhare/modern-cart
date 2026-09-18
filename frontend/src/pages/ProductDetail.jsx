@@ -6,6 +6,7 @@ import SmartImage from '../components/ui/SmartImage'
 import { Button } from '../components/ui/Button' // Fixed: Named import
 import { ArrowLeft, Heart, Star, ChevronLeft, ChevronRight, Truck, Shield, Clock } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
+import { apiUrl } from '../utils/api'
 
 const ProductDetail = () => {
   const { id } = useParams()
@@ -27,8 +28,8 @@ const ProductDetail = () => {
       setLoading(true)
       try {
         const [productRes, relatedRes] = await Promise.all([
-          fetch(`/api/products/${id}`),
-          fetch('/api/products?limit=8')
+          fetch(apiUrl(`/api/products/${id}`)),
+          fetch(apiUrl('/api/products?limit=8'))
         ])
 
         if (productRes.ok) {

@@ -5,6 +5,7 @@ import PageHero from '../components/layout/PageHero'
 import { Clock, BadgeCheck, Sparkles, ChevronDown, Search as SearchIcon, Filter } from 'lucide-react' // Added Filter
 import Input from '../components/ui/Input'
 import { Button } from '../components/ui/Button'
+import { apiUrl } from '../utils/api'
 
 const Deals = () => {
   const [sort, setSort] = useState('discount') // Mock sort
@@ -15,7 +16,7 @@ const Deals = () => {
   useEffect(() => {
     const fetchDealsProducts = async () => {
       try {
-        const res = await fetch('/api/products?limit=24&sort=relevance')
+        const res = await fetch(apiUrl('/api/products?limit=24&sort=relevance'))
         if (!res.ok) return
         const data = await res.json()
         setProducts(data.products || [])

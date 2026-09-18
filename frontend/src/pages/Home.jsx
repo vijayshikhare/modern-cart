@@ -4,6 +4,7 @@ import { products as fallbackProducts, categories, testimonials, partners } from
 import { Link } from 'react-router-dom'
 import { ChevronLeft, ChevronRight, Truck, Shield, Clock, Quote, Star, Play, Users, Award, Newspaper, Mail, HelpCircle } from 'lucide-react'
 import SmartImage from '../components/ui/SmartImage'
+import { apiUrl } from '../utils/api'
 
 const Home = () => {
   const [heroIndex, setHeroIndex] = useState(0)
@@ -15,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     const fetchHomeProducts = async () => {
       try {
-        const res = await fetch('/api/products?limit=16&sort=relevance')
+        const res = await fetch(apiUrl('/api/products?limit=16&sort=relevance'))
         if (res.ok) {
           const data = await res.json()
           setProducts(data.products || [])

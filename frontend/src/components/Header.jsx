@@ -6,6 +6,7 @@ import { useAuth } from '../hooks/useAuth'
 import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import Search from '../components/ui/Search' // Adjusted path if needed
+import { apiUrl } from '../utils/api'
 
 const SEARCH_PAGES = [
   { label: 'Products', description: 'Browse all products', path: '/products' },
@@ -113,7 +114,7 @@ const Header = ({ theme = 'light', toggleTheme }) => {
           _t: String(Date.now())
         })
 
-        const res = await fetch(`/api/products?${params}`, {
+        const res = await fetch(apiUrl(`/api/products?${params}`), {
           signal: controller.signal,
           cache: 'no-cache',
           headers: { 'Cache-Control': 'no-cache' }

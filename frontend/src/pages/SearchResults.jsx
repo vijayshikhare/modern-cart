@@ -4,6 +4,7 @@ import { Search as SearchIcon, Loader2, ArrowRight } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
 import PageHero from '../components/layout/PageHero'
 import Input from '../components/ui/Input'
+import { apiUrl } from '../utils/api'
 
 const searchablePages = [
   { title: 'Products', description: 'Browse all products and categories.', path: '/products', type: 'Page' },
@@ -52,7 +53,7 @@ const SearchResults = () => {
           _t: String(Date.now())
         })
 
-        const res = await fetch(`/api/products?${params}`, {
+        const res = await fetch(apiUrl(`/api/products?${params}`), {
           cache: 'no-cache',
           headers: { 'Cache-Control': 'no-cache' }
         })

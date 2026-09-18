@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Search as SearchIcon, Calendar, User, ChevronRight } from 'lucide-react'
 import PageHero from '../components/layout/PageHero'
 import SmartImage from '../components/ui/SmartImage'
+import { apiUrl } from '../utils/api'
 
 const Blog = () => {
   const [search, setSearch] = useState('')
@@ -12,7 +13,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogProducts = async () => {
       try {
-        const res = await fetch('/api/products?limit=12&sort=relevance')
+        const res = await fetch(apiUrl('/api/products?limit=12&sort=relevance'))
         if (!res.ok) return
         const data = await res.json()
         setProducts(data.products || [])

@@ -5,6 +5,7 @@ import { useCart } from '../hooks/useCart'
 import { Package, Heart, User, Edit, Award, ShoppingBag, CreditCard, Settings, LogOut, Loader2, AlertCircle, CheckCircle } from 'lucide-react'
 import { Button } from '../components/ui/Button'
 import Input from '../components/ui/Input' // Added missing import
+import { apiUrl } from '../utils/api'
 
 const Dashboard = () => {
   const { user, logout } = useAuth()
@@ -20,7 +21,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (user) {
       const token = localStorage.getItem('token')
-      fetch('/api/orders', { 
+      fetch(apiUrl('/api/orders'), {
         headers: { Authorization: `Bearer ${token}` } 
       })
         .then(res => {
@@ -47,7 +48,7 @@ const Dashboard = () => {
     setError('')
     setSuccess('')
     try {
-      const res = await fetch('/api/users/profile', {
+      const res = await fetch(apiUrl('/api/users/profile'), {
         method: 'PUT',
         headers: { 
           'Content-Type': 'application/json',

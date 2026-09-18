@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { apiUrl } from '../utils/api'
 
 const AuthContext = createContext()
 
@@ -11,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   // Function to fetch and validate user from token
   const fetchUser = async (token) => {
     try {
-      const res = await fetch('/api/auth/profile', { // Fixed: Match backend route /api/auth/profile
+      const res = await fetch(apiUrl('/api/auth/profile'), {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (res.ok) {
