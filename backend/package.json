@@ -1,7 +1,7 @@
 {
   "name": "proshop-backend",
   "version": "1.0.0",
-  "description": "Full-Featured Backend for ProShop E-Commerce (Auth, Products, Cart, Orders, Wishlist)",
+  "description": "Secure Express and MongoDB REST API for the Modern Cart e-commerce project",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
