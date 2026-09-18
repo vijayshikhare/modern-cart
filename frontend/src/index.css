@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  html {
+    font-family: 'Poppins', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(42, 149, 255, 0.12), transparent 28%),
+      radial-gradient(circle at 85% 5%, rgba(255, 120, 16, 0.10), transparent 32%),
+      linear-gradient(180deg, #f8fbff 0%, #f7f8fb 40%, #f8fafc 100%);
+    min-height: 100vh;
+  }
+
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(42, 149, 255, 0.16), transparent 34%),
+      radial-gradient(circle at 85% 5%, rgba(255, 120, 16, 0.10), transparent 32%),
+      linear-gradient(180deg, #020617 0%, #0b1220 52%, #0f172a 100%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Poppins', system-ui, sans-serif;
+    @apply tracking-tight text-slate-900;
+  }
+
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    @apply text-slate-100;
+  }
+
+  .dark .bg-white {
+    background-color: rgba(15, 23, 42, 0.96);
+  }
+
+  .dark .bg-gray-50 {
+    background-color: rgba(15, 23, 42, 0.92);
+  }
+
+  .dark .text-gray-900 {
+    color: rgb(241 245 249);
+  }
+
+  .dark .text-gray-700,
+  .dark .text-gray-600,
+  .dark .text-slate-600 {
+    color: rgb(148 163 184);
+  }
+
+  .dark .border-gray-100,
+  .dark .border-gray-200,
+  .dark .border-slate-200 {
+    border-color: rgb(51 65 85);
+  }
+
+  ::selection {
+    background: rgba(42, 149, 255, 0.25);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-primary-600 px-5 py-2.5 font-semibold text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-2.5 font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-200 hover:text-primary-700;
+  }
+
+  .section-wrap {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-slate-100 bg-white/90 shadow-card backdrop-blur;
+  }
+
+  .dark .surface-card {
+    @apply border-slate-700/70 bg-slate-900/85 shadow-none;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold md:text-4xl;
+  }
+
+  .hero-gradient {
+    @apply bg-gradient-to-br from-primary-700 via-primary-600 to-accent-600;
+  }
+}
+
+@layer utilities {
+  .dark .bg-white {
+    background-color: rgba(15, 23, 42, 0.96) !important;
+  }
+
+  .dark .bg-white\/95 {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+  }
+
+  .dark .bg-white\/90 {
+    background-color: rgba(15, 23, 42, 0.9) !important;
+  }
+
+  .dark .bg-white\/85 {
+    background-color: rgba(15, 23, 42, 0.85) !important;
+  }
+
+  .dark .bg-white\/80 {
+    background-color: rgba(15, 23, 42, 0.8) !important;
+  }
+
+  .dark .bg-white\/70 {
+    background-color: rgba(30, 41, 59, 0.7) !important;
+  }
+
+  .dark .bg-white\/60 {
+    background-color: rgba(51, 65, 85, 0.6) !important;
+  }
+
+  .dark .bg-white\/50 {
+    background-color: rgba(100, 116, 139, 0.45) !important;
+  }
+
+  .dark .bg-gray-50 {
+    background-color: rgba(15, 23, 42, 0.92) !important;
+  }
+
+  .dark .bg-gray-100 {
+    background-color: rgba(30, 41, 59, 0.9) !important;
+  }
+
+  .dark .hover\:bg-gray-50:hover {
+    background-color: rgba(30, 41, 59, 0.85) !important;
+  }
+
+  .dark .hover\:bg-gray-100:hover {
+    background-color: rgba(51, 65, 85, 0.85) !important;
+  }
+
+  .dark .hover\:bg-white:hover {
+    background-color: rgba(30, 41, 59, 0.95) !important;
+  }
+
+  .dark .focus\:bg-white:focus {
+    background-color: rgba(30, 41, 59, 0.95) !important;
+  }
+
+  .dark .text-gray-900 {
+    color: rgb(241 245 249) !important;
+  }
+
+  .dark .text-gray-800 {
+    color: rgb(226 232 240) !important;
+  }
+
+  .dark .text-gray-700 {
+    color: rgb(203 213 225) !important;
+  }
+
+  .dark .text-gray-600,
+  .dark .text-gray-500,
+  .dark .text-slate-600 {
+    color: rgb(148 163 184) !important;
+  }
+
+  .dark .border-gray-100,
+  .dark .border-gray-200,
+  .dark .border-gray-300,
+  .dark .border-slate-200 {
+    border-color: rgb(51 65 85) !important;
+  }
+}
