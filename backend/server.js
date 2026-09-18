@@ -12,7 +12,7 @@ connectDB()
 
 const app = express()
 
-const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173')
+const allowedOrigins = (process.env.FRONTEND_URL || 'https://modern-cart-seven.vercel.app,http://localhost:5173')
   .split(',')
   .map((origin) => origin.trim())
   .filter(Boolean)

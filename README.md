@@ -6,6 +6,12 @@
 [![Frontend Build](https://github.com/vijayshikhare/modern-cart/actions/workflows/ci.yml/badge.svg)](https://github.com/vijayshikhare/modern-cart/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Live Demo
+
+Explore the deployed storefront: [Open Modern Cart](https://modern-cart-seven.vercel.app/cart)
+
+Repository: [github.com/vijayshikhare/modern-cart](https://github.com/vijayshikhare/modern-cart)
+
 Modern Cart is a responsive online store with a production-minded shopping flow, account features, and a secure REST API. The customer-facing brand inside the app is **ProShop**.
 
 ## Why This Project
@@ -79,7 +85,7 @@ npm install
 npm run dev
 ```
 
-The frontend runs at `http://localhost:5173` and the API runs at `http://localhost:5000` by default.
+The frontend runs at `http://localhost:5173` and the API runs at `http://localhost:5000` by default. The deployed frontend is available at [modern-cart-seven.vercel.app](https://modern-cart-seven.vercel.app).
 
 ## Useful Commands
 
@@ -125,15 +131,8 @@ This project is licensed under the MIT License.
 
 `react` `vite` `nodejs` `express` `mongodb` `mongoose` `mern-stack` `ecommerce` `shopping-cart` `tailwindcss` `full-stack` `web-development`
 
-Currently, two official plugins are available:
+## Implementation Notes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- The frontend uses Vite for development and production builds.
+- GitHub Actions runs the frontend build and backend syntax checks on every change.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

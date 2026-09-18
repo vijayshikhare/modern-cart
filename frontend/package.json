@@ -2,6 +2,11 @@
   "name": "modern-cart-frontend",
   "version": "0.0.0",
   "description": "Responsive React storefront for the Modern Cart MERN e-commerce project",
+  "homepage": "https://modern-cart-seven.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vijayshikhare/modern-cart.git"
+  },
   "keywords": [
     "react",
     "vite",
