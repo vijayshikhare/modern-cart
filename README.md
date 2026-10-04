@@ -1,59 +1,95 @@
 
 # Modern Cart
 
-> A polished full-stack e-commerce experience built with React, Node.js, Express, and MongoDB.
+> A polished MERN e-commerce platform for discovering products, managing a cart, and completing an authenticated checkout flow.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20Storefront-0f75e6?style=for-the-badge)](https://modern-cart-seven.vercel.app/)
 [![Frontend Build](https://github.com/vijayshikhare/modern-cart/actions/workflows/ci.yml/badge.svg)](https://github.com/vijayshikhare/modern-cart/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/vijayshikhare/modern-cart?style=flat)](https://github.com/vijayshikhare/modern-cart/stargazers)
 
-## Live Demo
+Modern Cart is a full-stack JavaScript shopping experience built for people who want to see how a real storefront fits together: product discovery, search, authentication, cart persistence, wishlist management, checkout, and order history backed by a REST API.
 
-Explore the deployed storefront: [Open Modern Cart](https://modern-cart-seven.vercel.app/cart)
+The customer-facing brand inside the app is **ProShop**.
 
-Repository: [github.com/vijayshikhare/modern-cart](https://github.com/vijayshikhare/modern-cart)
+<div align="center">
 
-Modern Cart is a responsive online store with a production-minded shopping flow, account features, and a secure REST API. The customer-facing brand inside the app is **ProShop**.
+**[Try the live storefront](https://modern-cart-seven.vercel.app/)** · **[Explore the API](#api-surface)** · **[Open an issue](https://github.com/vijayshikhare/modern-cart/issues)**
 
-## Why This Project
+</div>
 
-Modern Cart is designed as a practical portfolio-quality MERN e-commerce project rather than a static storefront. It demonstrates responsive UI composition, lazy-loaded React routes, authenticated customer workflows, server-side validation, protected API routes, security headers, and rate limiting.
+## Why Modern Cart?
 
-## Features
+This is more than a static shop mockup. It is a practical MERN e-commerce project with a responsive React interface, protected customer workflows, server-side checkout rules, MongoDB persistence, and production-minded API middleware.
 
-- Responsive storefront with product discovery, search, deals, and new arrivals
-- Product details, cart, checkout, wishlist, and order history flows
-- User registration, login, protected routes, and account dashboard
-- REST API for authentication, products, carts, wishlists, orders, and users
-- MongoDB persistence through Mongoose
-- Joi request validation and JWT authentication
-- Helmet security headers, CORS configuration, Morgan logging, and rate limiting
-- Reusable React UI components with Tailwind CSS and Framer Motion
-- Lazy-loaded pages for a faster initial frontend load
+It is useful for:
+
+- Developers learning how a React storefront communicates with an Express API
+- Hiring teams reviewing a complete full-stack portfolio project
+- Contributors looking for a focused e-commerce codebase to improve
+- Product teams exploring a clean starting point for a shopping experience
+
+## What You Can Try
+
+| Experience | Included |
+| --- | --- |
+| Discover | Responsive home page, categories, search suggestions, deals, new arrivals, and product details |
+| Shop | Persistent cart, quantity updates, stock checks, wishlist, and protected checkout |
+| Account | Registration, login, dashboard, order history, and protected routes |
+| Operate | Product, user, cart, wishlist, and order REST endpoints with MongoDB persistence |
+| Trust | JWT authentication, Joi validation, Helmet headers, CORS rules, logging, and rate limiting |
+
+## Product Highlights
+
+- Lazy-loaded React routes for a lighter initial storefront load
+- Responsive layout with light and dark themes
+- Search, category filters, sorting, pagination, and quick product suggestions
+- Server-owned order totals and stock reservation during checkout
+- Reusable UI primitives built with Tailwind CSS and Lucide icons
+- Seed data for quickly creating a local product catalog
+- GitHub Actions checks for the frontend build and backend syntax
 
 ## Tech Stack
 
-| Area | Technologies |
+| Layer | Tools |
 | --- | --- |
-| Frontend | React 19, Vite, React Router, Tailwind CSS, Framer Motion, Lucide |
+| Frontend | React 19, Vite, React Router, Tailwind CSS, Framer Motion, Lucide React |
 | Backend | Node.js, Express, JWT, Joi, Helmet, Morgan, express-rate-limit |
 | Database | MongoDB and Mongoose |
 | Quality | ESLint, Vite production build, Node syntax checks, GitHub Actions |
+
+## Architecture
+
+```text
+Browser
+	│
+	▼
+React + Vite storefront ── REST calls ──► Express API
+																						 │
+																						 ▼
+																				 MongoDB
+```
 
 ## Project Structure
 
 ```text
 modern-cart/
-├── backend/      # Express API, models, controllers, routes, and database config
-├── frontend/     # React + Vite storefront
-├── .github/      # Continuous integration workflow
+├── backend/
+│   ├── controllers/   # Request handlers and business rules
+│   ├── models/        # Mongoose schemas
+│   ├── routes/        # REST endpoints
+│   └── server.js      # API entry point
+├── frontend/
+│   └── src/            # React pages, components, hooks, and utilities
+├── .github/workflows/  # Continuous integration
 └── README.md
 ```
 
-## Getting Started
+## Run It Locally
 
 ### Prerequisites
 
-- Node.js 18 or newer
+- Node.js 18+
 - npm
 - A MongoDB database, local or hosted
 
@@ -64,7 +100,7 @@ git clone https://github.com/vijayshikhare/modern-cart.git
 cd modern-cart
 ```
 
-### 2. Configure the backend
+### 2. Configure and start the API
 
 ```bash
 cd backend
@@ -73,11 +109,29 @@ npm install
 npm run dev
 ```
 
-Fill in the values in `backend/.env` before using authentication or database-backed features. Never commit `.env` files.
+On Windows PowerShell, use `Copy-Item .env.example .env` instead of `cp`.
 
-### 3. Start the frontend
+Update `backend/.env` with your MongoDB URI and JWT secret before using account, cart, or order features:
 
-In a second terminal:
+```env
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<dbName>
+JWT_SECRET=replace-with-a-long-random-secret
+PORT=5000
+NODE_ENV=development
+FRONTEND_URL=http://localhost:5173
+```
+
+### 3. Seed sample products (optional)
+
+From `backend/`:
+
+```bash
+npm run seed
+```
+
+### 4. Start the storefront
+
+Open a second terminal:
 
 ```bash
 cd frontend
@@ -85,54 +139,55 @@ npm install
 npm run dev
 ```
 
-The frontend runs at `http://localhost:5173` and the API runs at `http://localhost:5000` by default. The deployed frontend is available at [modern-cart-seven.vercel.app](https://modern-cart-seven.vercel.app).
+Open [http://localhost:5173](http://localhost:5173). The API runs at [http://localhost:5000](http://localhost:5000).
 
-## Useful Commands
+## Commands
 
-### Frontend
+Run these commands from the relevant directory:
 
 ```bash
-npm run dev       # Start Vite development server
+# frontend/
+npm run dev       # Start the Vite development server
 npm run build     # Create a production build
-npm run preview   # Preview the production build locally
-```
+npm run preview   # Preview the production build
 
-### Backend
-
-```bash
+# backend/
 npm run dev       # Start the API with nodemon
 npm start         # Start the API normally
-npm run seed      # Seed the database when configured
+npm run seed      # Replace products with sample catalog data
 ```
 
-## API Areas
+## API Surface
 
-- `/api/auth` - registration and login
-- `/api/products` - product browsing and management
-- `/api/cart` - customer cart operations
-- `/api/wishlist` - saved products
-- `/api/orders` - checkout and order history
-- `/api/users` - account operations
+| Route | Purpose |
+| --- | --- |
+| `/api/auth` | Registration, login, and profile |
+| `/api/products` | Public browsing plus protected product management |
+| `/api/cart` | Authenticated cart operations |
+| `/api/wishlist` | Authenticated saved products |
+| `/api/orders` | Authenticated checkout and order history |
+| `/api/users` | Authenticated user operations |
+
+## Current Scope
+
+The checkout UI currently presents COD, Card, and UPI choices, but no external payment processor is connected yet. This keeps the demo flow usable while leaving a clear integration point for Stripe, Razorpay, or another provider.
 
 ## Contributing
 
-Issues, suggestions, and pull requests are welcome. For a focused contribution:
+Ideas, bug reports, documentation improvements, and pull requests are welcome. A good first contribution is a focused issue with reproduction steps or a small UI/API improvement with tests or screenshots.
 
 1. Fork the repository.
 2. Create a branch: `git checkout -b feat/your-improvement`.
-3. Make and test your change.
+3. Install dependencies and run the relevant checks.
 4. Open a pull request with a clear summary and screenshots for UI changes.
+
+If this project helps you, a **star** is appreciated. It helps more developers discover the project and gives future contributors a useful signal.
 
 ## License
 
-This project is licensed under the MIT License.
+Released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Discover More
 
-`react` `vite` `nodejs` `express` `mongodb` `mongoose` `mern-stack` `ecommerce` `shopping-cart` `tailwindcss` `full-stack` `web-development`
-
-## Implementation Notes
-
-- The frontend uses Vite for development and production builds.
-- GitHub Actions runs the frontend build and backend syntax checks on every change.
+`react` `react-router` `vite` `nodejs` `express` `mongodb` `mongoose` `mern-stack` `ecommerce` `shopping-cart` `rest-api` `tailwindcss` `full-stack-javascript`
 
