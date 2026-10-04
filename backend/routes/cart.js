@@ -5,7 +5,7 @@ const { protect } = require('../middleware/auth')
 const router = express.Router()
 
 router.route('/').get(protect, getCart).post(protect, addToCart)
+router.delete('/clear', protect, clearCart)
 router.route('/:itemId').put(protect, updateCart).delete(protect, removeFromCart)
-router.delete('/clear', protect, clearCart) // Optional: Clear entire cart
 
 module.exports = router

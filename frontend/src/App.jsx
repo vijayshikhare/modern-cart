@@ -120,14 +120,12 @@ const ProtectedRoute = ({ children }) => {
 }
 
 function App() {
-  const [theme, setTheme] = useState('light')
-
-  useEffect(() => {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') return 'light'
     const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light')
-    setTheme(initialTheme)
-  }, [])
+    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches
+    return savedTheme || (prefersDark ? 'dark' : 'light')
+  })
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark')
@@ -140,6 +138,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-transparent">
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Header theme={theme} toggleTheme={toggleTheme} />
       <BreadcrumbBar />
       <Suspense fallback={
@@ -152,7 +151,7 @@ function App() {
           </div>
         </main>
       }>
-        <main className="flex-grow pb-12">
+        <main id="main-content" className="flex-grow pb-12">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />

@@ -391,7 +391,7 @@ const Header = ({ theme = 'light', toggleTheme }) => {
       <div className="hidden bg-slate-900 py-2 px-4 text-center text-xs text-white md:block">
         <span className="flex items-center justify-center">
           <Leaf className="h-4 w-4 mr-1" />
-          Free Shipping on Orders Over $50 | Sustainable Shopping in 2025
+          Free Shipping on Orders Over $50 | Thoughtful products, delivered simply
         </span>
       </div>
 
@@ -516,14 +516,14 @@ const Header = ({ theme = 'light', toggleTheme }) => {
                         </div>
                         <Link 
                           to="/dashboard" 
-                          className="block px-4 py-2 hover:bg-gray-50 flex items-center transition-colors" 
+                          className="flex items-center px-4 py-2 hover:bg-gray-50 transition-colors"
                           onClick={closeUserMenu}
                         >
                           <UserCheck className="h-4 w-4 mr-3 text-gray-600" /> Dashboard
                         </Link>
                         <Link 
                           to="/orders" 
-                          className="block px-4 py-2 hover:bg-gray-50 flex items-center transition-colors" 
+                          className="flex items-center px-4 py-2 hover:bg-gray-50 transition-colors"
                           onClick={closeUserMenu}
                         >
                           <Package className="h-4 w-4 mr-3 text-gray-600" /> Orders
@@ -540,14 +540,14 @@ const Header = ({ theme = 'light', toggleTheme }) => {
                       <>
                         <Link 
                           to="/login"
-                          className="block w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center transition-colors" 
+                          className="flex w-full items-center px-4 py-2 text-left hover:bg-gray-50 transition-colors"
                           onClick={closeUserMenu}
                         >
                           <LogIn className="h-4 w-4 mr-3 text-gray-600" /> Login
                         </Link>
                         <Link 
                           to="/register"
-                          className="block w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center transition-colors" 
+                          className="flex w-full items-center px-4 py-2 text-left hover:bg-gray-50 transition-colors"
                           onClick={closeUserMenu}
                         >
                           <UserPlus className="h-4 w-4 mr-3 text-gray-600" /> Register
