@@ -1,6 +1,6 @@
 // Updated Header.jsx - Removed modals, added links to /login and /register
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { ShoppingCart, Heart, User, Menu, LogIn, UserPlus, ChevronDown, Package, Leaf, Loader2, Phone, UserCheck, Moon, Sun, X } from 'lucide-react'
+import { ShoppingCart, Heart, User, Menu, LogIn, UserPlus, ChevronDown, Package, Leaf, Phone, UserCheck, Moon, Sun, X } from 'lucide-react'
 import { useCart } from '../hooks/useCart'
 import { useAuth } from '../hooks/useAuth'
 import { useState, useEffect, useRef } from 'react'
@@ -23,7 +23,7 @@ const SEARCH_PAGES = [
 
 const Header = ({ theme = 'light', toggleTheme }) => {
   const { cart, wishlist } = useCart()
-  const { user, logout, loading: authLoading } = useAuth()
+  const { user, logout } = useAuth()
   const [isOpen, setIsOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [searchFocused, setSearchFocused] = useState(false)
@@ -373,17 +373,6 @@ const Header = ({ theme = 'light', toggleTheme }) => {
       document.body
     )
     : null
-
-  if (authLoading) {
-    return (
-      <header className="bg-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-center items-center">
-          <Loader2 className="h-6 w-6 animate-spin text-primary-600" />
-          <span className="ml-2 text-gray-700">Loading...</span>
-        </div>
-      </header>
-    )
-  }
 
   return (
     <>
