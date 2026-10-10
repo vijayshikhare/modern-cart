@@ -7,11 +7,11 @@ const PageHero = ({
   breadcrumbs = []
 }) => {
   const toneBorderMap = {
-    blue: 'border-primary-200',
-    green: 'border-emerald-200',
-    slate: 'border-slate-200',
-    violet: 'border-indigo-200',
-    orange: 'border-amber-200'
+    blue: 'border-primary-200 dark:border-primary-900/70',
+    green: 'border-emerald-200 dark:border-emerald-900/70',
+    slate: 'border-slate-200 dark:border-slate-700',
+    violet: 'border-indigo-200 dark:border-indigo-900/70',
+    orange: 'border-amber-200 dark:border-amber-900/70'
   }
 
   const toneBadgeMap = {
@@ -27,23 +27,23 @@ const PageHero = ({
   void breadcrumbs
 
   return (
-    <section className={`relative overflow-hidden border-b ${toneBorder} bg-white py-14 md:py-16 dark:border-slate-700 dark:bg-slate-950`}>
+    <section className={`relative overflow-hidden border-b ${toneBorder} bg-white py-16 md:py-20 dark:bg-slate-950`}>
       {backgroundImage && (
         <img
           src={backgroundImage}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-10"
+          className="absolute inset-0 h-full w-full object-cover opacity-25 saturate-75"
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50/80 to-white/95 dark:from-slate-900/85 dark:to-slate-950/95" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-primary-50/80 dark:from-slate-950/90 dark:via-slate-950/80 dark:to-primary-950/70" />
       <div className="section-wrap relative text-center">
         {badge && (
           <div className={`mb-4 inline-flex rounded-full border px-4 py-1.5 text-sm font-medium ${toneBadge}`}>
             {badge}
           </div>
         )}
-        <h1 className="mx-auto mb-4 max-w-4xl text-4xl font-bold text-slate-900 md:text-5xl dark:text-slate-100">{title}</h1>
-        {subtitle && <p className="mx-auto max-w-3xl text-lg text-slate-600 md:text-xl dark:text-slate-300">{subtitle}</p>}
+        <h1 className="mx-auto mb-5 max-w-4xl text-4xl font-bold text-slate-900 md:text-6xl dark:text-slate-100">{title}</h1>
+        {subtitle && <p className="mx-auto max-w-3xl text-base leading-relaxed text-slate-600 md:text-xl dark:text-slate-300">{subtitle}</p>}
       </div>
     </section>
   )

@@ -7,10 +7,18 @@
 @layer base {
   :root {
     color-scheme: light;
+    --canvas: #f7f9fc;
+    --ink: #111827;
+    --muted: #64748b;
+    --line: #e2e8f0;
   }
 
   .dark {
     color-scheme: dark;
+    --canvas: #080d18;
+    --ink: #f8fafc;
+    --muted: #94a3b8;
+    --line: #263449;
   }
 
   html {
@@ -24,20 +32,24 @@
   }
 
   body {
-    @apply bg-slate-50 text-slate-800 antialiased;
+    @apply text-slate-800 antialiased;
+    background-color: var(--canvas);
     background-image:
-      radial-gradient(circle at 15% 10%, rgba(42, 149, 255, 0.12), transparent 28%),
-      radial-gradient(circle at 85% 5%, rgba(255, 120, 16, 0.10), transparent 32%),
-      linear-gradient(180deg, #f8fbff 0%, #f7f8fb 40%, #f8fafc 100%);
+      linear-gradient(rgba(15, 117, 230, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 117, 230, 0.035) 1px, transparent 1px),
+      linear-gradient(180deg, #fbfdff 0%, #f7f9fc 48%, #f4f7fb 100%);
+    background-size: 48px 48px, 48px 48px, auto;
     min-height: 100vh;
   }
 
   .dark body {
-    @apply bg-slate-950 text-slate-100;
+    @apply text-slate-100;
+    background-color: var(--canvas);
     background-image:
-      radial-gradient(circle at 15% 10%, rgba(42, 149, 255, 0.16), transparent 34%),
-      radial-gradient(circle at 85% 5%, rgba(255, 120, 16, 0.10), transparent 32%),
-      linear-gradient(180deg, #020617 0%, #0b1220 52%, #0f172a 100%);
+      linear-gradient(rgba(83, 180, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(83, 180, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(180deg, #060b14 0%, #0a1120 52%, #0d1728 100%);
+    background-size: 48px 48px, 48px 48px, auto;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -62,13 +74,18 @@
     background-color: rgba(15, 23, 42, 0.92);
   }
 
+  .dark .bg-slate-50 {
+    background-color: rgba(8, 13, 24, 0.96);
+  }
+
   .dark .text-gray-900 {
     color: rgb(241 245 249);
   }
 
   .dark .text-gray-700,
   .dark .text-gray-600,
-  .dark .text-slate-600 {
+  .dark .text-slate-600,
+  .dark .text-slate-700 {
     color: rgb(148 163 184);
   }
 
@@ -89,7 +106,7 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-2.5 font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-200 hover:text-primary-700;
+    @apply inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-2.5 font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-200 hover:text-primary-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-primary-500 dark:hover:text-primary-300;
   }
 
   .section-wrap {
@@ -97,7 +114,7 @@
   }
 
   .surface-card {
-    @apply rounded-2xl border border-slate-100 bg-white/90 shadow-card backdrop-blur;
+    @apply rounded-2xl border border-slate-200/80 bg-white/90 shadow-card backdrop-blur;
   }
 
   .dark .surface-card {
@@ -106,6 +123,10 @@
 
   .section-title {
     @apply text-2xl font-bold md:text-4xl;
+  }
+
+  .page-shell {
+    @apply min-h-screen bg-transparent;
   }
 
   .hero-gradient {

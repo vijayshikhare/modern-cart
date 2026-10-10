@@ -38,12 +38,12 @@ const Button = ({
       'active:translate-y-0'
     ),
     outline: cn(
-      'border border-slate-300 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-primary-300 hover:text-primary-700 focus:ring-primary-500',
+      'border border-slate-300 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-primary-300 hover:text-primary-700 focus:ring-primary-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-primary-500 dark:hover:text-primary-300',
       'active:translate-y-0'
     ),
     ghost: cn(
-      'text-slate-700 hover:bg-slate-100 focus:ring-primary-500',
-      'active:bg-slate-200'
+      'text-slate-700 hover:bg-slate-100 focus:ring-primary-500 dark:text-slate-200 dark:hover:bg-slate-800',
+      'active:bg-slate-200 dark:active:bg-slate-700'
     ),
     destructive: cn(
       'bg-red-600 text-white hover:-translate-y-0.5 hover:bg-red-700 focus:ring-red-500 shadow-sm',

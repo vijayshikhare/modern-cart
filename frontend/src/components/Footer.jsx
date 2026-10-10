@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mail, Facebook, Twitter, Instagram, Youtube, Phone, MapPin, Clock } from 'lucide-react'
+import { Mail, Github, Twitter, Instagram, Youtube, Globe2, Clock } from 'lucide-react'
 import Input from './ui/Input'
 import { Button } from './ui/Button' // Fixed: Named import
 import { partners } from '../data/products'
@@ -16,26 +16,29 @@ const Footer = () => (
             <span className="mr-2">ProShop</span>
             <span className="rounded-full bg-emerald-500/90 px-2 py-1 text-xs font-semibold text-white">Trusted 2026</span>
           </h3>
-          <p className="mb-6 leading-relaxed text-slate-300">Your trusted ecommerce partner for premium products, reliable delivery, and seamless customer service.</p>
+          <p className="mb-6 leading-relaxed text-slate-300">A considered shopping experience for useful products, clear choices, and dependable delivery.</p>
           {/* Social Links */}
-          <div className="flex space-x-4 mb-4">
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="rounded-full border border-slate-700 p-2 hover:bg-slate-800 transition-colors" aria-label="Facebook">
-              <Facebook className="h-5 w-5" />
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Find Vijay online</p>
+          <div className="mb-5 flex flex-wrap gap-2">
+            <a href="https://github.com/vijayshikhare" target="_blank" rel="noreferrer" className="rounded-full border border-slate-700 p-2 transition-colors hover:border-primary-400 hover:bg-slate-800 hover:text-primary-300" aria-label="GitHub">
+              <Github className="h-5 w-5" />
             </a>
-            <a href="https://x.com" target="_blank" rel="noreferrer" className="rounded-full border border-slate-700 p-2 hover:bg-slate-800 transition-colors" aria-label="Twitter">
+            <a href="https://twitter.com/vijayshikhre" target="_blank" rel="noreferrer" className="rounded-full border border-slate-700 p-2 transition-colors hover:border-primary-400 hover:bg-slate-800 hover:text-primary-300" aria-label="Twitter">
               <Twitter className="h-5 w-5" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="rounded-full border border-slate-700 p-2 hover:bg-slate-800 transition-colors" aria-label="Instagram">
+            <a href="https://youtube.com/@vijay__shikhare" target="_blank" rel="noreferrer" className="rounded-full border border-slate-700 p-2 transition-colors hover:border-primary-400 hover:bg-slate-800 hover:text-primary-300" aria-label="YouTube">
+              <Youtube className="h-5 w-5" />
+            </a>
+            <a href="https://instagram.com/vijay__shikhare" target="_blank" rel="noreferrer" className="rounded-full border border-slate-700 p-2 transition-colors hover:border-primary-400 hover:bg-slate-800 hover:text-primary-300" aria-label="Instagram">
               <Instagram className="h-5 w-5" />
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noreferrer" className="rounded-full border border-slate-700 p-2 hover:bg-slate-800 transition-colors" aria-label="Youtube">
-              <Youtube className="h-5 w-5" />
+            <a href="https://vijayshikhare.com/" target="_blank" rel="noreferrer" className="rounded-full border border-slate-700 p-2 transition-colors hover:border-primary-400 hover:bg-slate-800 hover:text-primary-300" aria-label="Personal website">
+              <Globe2 className="h-5 w-5" />
             </a>
           </div>
           {/* Contact Info */}
           <div className="space-y-2 text-sm text-slate-300">
-            <p className="flex items-center"><Phone className="h-4 w-4 mr-2" /> +1 (555) 123-4567</p>
-            <p className="flex items-center"><MapPin className="h-4 w-4 mr-2" /> 123 Eco Street, Green City</p>
+            <Link to="/contact" className="inline-flex items-center text-slate-300 transition-colors hover:text-white"><Mail className="mr-2 h-4 w-4" /> Contact the ProShop team</Link>
           </div>
         </div>
 
@@ -66,9 +69,11 @@ const Footer = () => (
         <div>
           <h4 className="text-lg font-semibold mb-6">Customer Support</h4>
           <ul className="space-y-3">
-            <li><Link to="/services" className="block flex items-center text-slate-300 hover:text-white transition-colors">
-              <Clock className="h-4 w-4 mr-2" /> Order Tracking
-            </Link></li>
+            <li>
+              <Link to="/services" className="flex items-center text-slate-300 transition-colors hover:text-white">
+                <Clock className="mr-2 h-4 w-4" /> Order Tracking
+              </Link>
+            </li>
             <li><Link to="/returns" className="block text-slate-300 hover:text-white transition-colors">Returns & Refunds</Link></li>
             <li><Link to="/contact" className="block text-slate-300 hover:text-white transition-colors">Contact Us</Link></li>
             <li><Link to="/services" className="block text-slate-300 hover:text-white transition-colors">FAQ & Help</Link></li>

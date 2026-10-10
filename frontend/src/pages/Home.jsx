@@ -30,24 +30,24 @@ const Home = () => {
 
   const displayProducts = products.length > 0 ? products : fallbackProducts
 
-  // Enhanced hero slides with 2025 trends: more immersive, video placeholders
+  // Editorial hero slides keep the storefront visual and product-led.
   const heroSlides = [
     { 
-      img: 'https://picsum.photos/seed/hero-main/1400/600', 
-      title: 'Big Sale! Up to 70% Off Everything', 
-      subtitle: 'Limited time offer on top brands. Shop sustainable and save big in 2025.', 
+      img: 'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=2200&q=85',
+      title: 'A better edit for everyday living',
+      subtitle: 'Thoughtful fashion, home, and tech finds selected for how you live now.',
       video: false 
     },
     { 
-      img: 'https://picsum.photos/seed/new-arrivals-hero/1200/500', 
-      title: 'New Arrivals: Eco-Friendly Essentials', 
-      subtitle: 'Discover trending sustainable fashion with blockchain-verified origins.', 
+      img: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=2200&q=85',
+      title: 'New arrivals, chosen with intention',
+      subtitle: 'Discover clean silhouettes, considered materials, and pieces made to stay in rotation.',
       video: true 
     },
     { 
-      img: 'https://picsum.photos/seed/tech-gadgets-hero/1200/500', 
-      title: 'Tech Revolution: Smart Home 2025', 
-      subtitle: 'Voice-activated devices and AR previews. Experience the future now.', 
+      img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2200&q=85',
+      title: 'Make space for smarter essentials',
+      subtitle: 'Useful tech and modern home upgrades that earn their place in your day.',
       video: false 
     },
   ]

@@ -11,6 +11,7 @@ const Input = ({
   showClear = false,
   loading = false,
   error = false,
+  icon,
   className,
   value,
   onChange,
@@ -21,6 +22,7 @@ const Input = ({
   const [localValue, setLocalValue] = useState(value ?? '')
 
   const inputValue = useMemo(() => (value !== undefined ? value : localValue), [value, localValue])
+  const leadingIcon = iconLeft || icon
 
   const sizes = {
     sm: 'py-2 px-3 text-sm',
@@ -30,8 +32,8 @@ const Input = ({
 
   const variants = {
     default: 'border-slate-300 focus:border-primary-500 focus:ring-primary-500 bg-white text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-400',
-    outline: 'border-slate-300 bg-transparent focus:border-primary-500 focus:ring-primary-500',
-    filled: 'border-slate-200 bg-slate-50 focus:border-primary-500 focus:ring-primary-500'
+    outline: 'border-slate-300 bg-transparent focus:border-primary-500 focus:ring-primary-500 dark:border-slate-700 dark:text-slate-100',
+    filled: 'border-slate-200 bg-slate-50 focus:border-primary-500 focus:ring-primary-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100'
   }
 
   const baseClasses = cn(
@@ -56,9 +58,9 @@ const Input = ({
 
   return (
     <div className="relative flex w-full min-w-0 items-center">
-      {iconLeft && (
+      {leadingIcon && (
         <div className="absolute left-3 pointer-events-none">
-          {iconLeft}
+          {leadingIcon}
         </div>
       )}
       <input
@@ -71,7 +73,7 @@ const Input = ({
         className={cn(
           baseClasses,
           'min-w-0',
-          iconLeft && 'pl-10',
+          leadingIcon && 'pl-10',
           (iconRight || showClear || loading) && 'pr-10',
           focused && 'ring-offset-1 ring-offset-white shadow-md'
         )}
