@@ -8,7 +8,6 @@ import { apiUrl } from '../utils/api'
 
 const Home = () => {
   const [heroIndex, setHeroIndex] = useState(0)
-  const [testimonialIndex, setTestimonialIndex] = useState(0)
   const [brandIndex, setBrandIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const [products, setProducts] = useState([])
@@ -52,6 +51,7 @@ const Home = () => {
       video: false 
     },
   ]
+  const heroSlideCount = heroSlides.length
 
   // Mock trending products (expand for scale)
   const trendingProducts = displayProducts.slice(1, 4)
@@ -60,10 +60,10 @@ const Home = () => {
   // Auto-advance hero
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeroIndex((prev) => (prev + 1) % heroSlides.length)
+            setHeroIndex((prev) => (prev + 1) % heroSlideCount)
     }, 5000)
     return () => clearInterval(interval)
-  }, [])
+  }, [heroSlideCount])
 
   // Intersection Observer for scroll animations
   useEffect(() => {
@@ -79,9 +79,8 @@ const Home = () => {
     return () => observer.disconnect()
   }, [])
 
-  const nextHero = () => setHeroIndex((prev) => (prev + 1) % heroSlides.length)
-  const prevHero = () => setHeroIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
-  const nextTestimonial = () => setTestimonialIndex((prev) => (prev + 1) % testimonials.length)
+  const nextHero = () => setHeroIndex((prev) => (prev + 1) % heroSlideCount)
+  const prevHero = () => setHeroIndex((prev) => (prev - 1 + heroSlideCount) % heroSlideCount)
   const nextBrand = () => setBrandIndex((prev) => (prev + 1) % partners.length)
 
   // Mock blog posts for scale
@@ -107,12 +106,12 @@ const Home = () => {
     <div className="bg-transparent">
       {/* Enhanced Hero: Full-width, immersive with video placeholder */}
       <section className="relative w-full overflow-hidden rounded-b-3xl border-b border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-950">
-        <div className="relative section-wrap">
+        <div className="relative min-h-[430px] sm:min-h-[520px] lg:min-h-[640px]">
           <SmartImage
             seed={`home-hero-${heroIndex}`}
             src={heroSlides[heroIndex].img} 
             alt="Hero" 
-            className="w-full h-64 sm:h-80 md:h-[500px] object-cover opacity-70 transition-opacity duration-1000" 
+            className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity duration-1000"
           />
           {heroSlides[heroIndex].video && (
             <div className="absolute inset-0 flex items-center justify-center">
@@ -120,8 +119,8 @@ const Home = () => {
               <span className="absolute text-white text-xs sm:text-sm uppercase tracking-wider">Watch Video</span>
             </div>
           )}
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-white/15 via-white/35 to-white/80 dark:from-slate-950/20 dark:via-slate-950/35 dark:to-slate-950/80">
-            <div className="mx-auto max-w-4xl px-4 text-center text-slate-900 dark:text-slate-100">
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-white/15 via-white/45 to-white/90 dark:from-slate-950/25 dark:via-slate-950/55 dark:to-slate-950/90">
+            <div className="section-wrap mx-auto max-w-5xl text-center text-slate-900 dark:text-slate-100">
               <h1 className="mb-6 animate-fade-in text-2xl font-bold sm:text-4xl md:text-6xl">{heroSlides[heroIndex].title}</h1>
               <p className="mb-8 text-lg leading-relaxed text-slate-700 dark:text-slate-200 sm:text-xl md:text-2xl">{heroSlides[heroIndex].subtitle}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -133,14 +132,14 @@ const Home = () => {
           <button 
             onClick={prevHero} 
             aria-label="Previous slide"
-            className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-2 text-slate-900 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white sm:left-4 sm:p-3"
+            className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/85 p-2 text-slate-900 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white dark:bg-slate-900/80 dark:text-slate-100 dark:hover:bg-slate-800 sm:left-6 sm:p-3"
           >
             <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
           <button 
             onClick={nextHero} 
             aria-label="Next slide"
-            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-2 text-slate-900 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white sm:right-4 sm:p-3"
+            className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/85 p-2 text-slate-900 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white dark:bg-slate-900/80 dark:text-slate-100 dark:hover:bg-slate-800 sm:right-6 sm:p-3"
           >
             <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
@@ -291,12 +290,6 @@ const Home = () => {
               </div>
             ))}
           </div>
-          <button 
-            onClick={nextTestimonial} 
-            className="mx-auto mt-6 sm:mt-8 block btn-primary px-6 py-3 rounded-full text-sm sm:text-base"
-          >
-            Read More Stories <ChevronRight className="inline h-4 w-4 sm:h-5 sm:w-5 ml-1" />
-          </button>
         </section>
 
         {/* Best Sellers: Enhanced */}

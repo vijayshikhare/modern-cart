@@ -31,8 +31,10 @@ const Search = ({
   return (
     <form onSubmit={handleSubmit} className={cn('relative w-full', className)}>
       <div className={cn(
-        'relative flex items-center rounded-full border-2 transition-all duration-200',
-        focused ? 'border-primary-500 shadow-lg shadow-primary-100' : 'border-gray-200 hover:border-gray-300'
+        'relative flex items-center overflow-hidden rounded-full border-2 bg-white/90 transition-all duration-200 dark:bg-slate-900/90',
+        focused
+          ? 'border-primary-500 shadow-lg shadow-primary-100 dark:shadow-primary-950/40'
+          : 'border-gray-200 hover:border-gray-300 dark:border-slate-700 dark:hover:border-slate-600'
       )}>
         <SearchIcon className={cn(
           'absolute left-3 h-4 w-4 transition-colors',
@@ -52,8 +54,8 @@ const Search = ({
             if (onBlur) onBlur(e)
           }}
           className={cn(
-            'pl-10 pr-10 py-3 text-sm bg-transparent border-0 focus:ring-0 focus:outline-none w-full',
-            focused ? 'placeholder-gray-400' : 'placeholder-gray-500'
+            '!w-full !rounded-full !border-0 !bg-transparent !py-3 !pl-10 !pr-10 text-sm !shadow-none !ring-0 focus:!border-0 focus:!ring-0',
+            focused ? 'placeholder-gray-400' : 'placeholder-gray-500 dark:placeholder-gray-400'
           )}
           disabled={isLoading}
         />

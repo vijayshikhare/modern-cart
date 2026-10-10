@@ -561,24 +561,24 @@ const Header = ({ theme = 'light', toggleTheme }) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:block" aria-label="Main navigation">
-            <div className="flex justify-center space-x-1 py-3 border-t border-gray-100">
+            <div className="flex justify-start gap-1 overflow-x-auto border-t border-gray-100 py-3 [scrollbar-width:none] dark:border-slate-800 lg:justify-center">
               {navItems.map((item, i) => (
                 <div key={i} className="relative group">
                   {item.to ? (
                     <Link 
                       to={item.to} 
-                      className={`px-4 py-3 rounded-lg transition-all duration-300 block ${
+                      className={`block whitespace-nowrap rounded-lg px-4 py-3 transition-all duration-300 ${
                         (item.exact && location.pathname === item.to) || 
                         (!item.exact && location.pathname.startsWith(item.to) && item.to !== '/')
                           ? 'text-primary-600 bg-primary-50 shadow-md' 
-                          : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                          : 'text-gray-700 hover:bg-gray-50 hover:text-primary-600 dark:hover:bg-slate-800'
                       }`}
                       onClick={closeUserMenu}
                     >
                       {item.label}
                     </Link>
                   ) : (
-                    <span className="px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all duration-300 cursor-default block">
+                    <span className="block cursor-default whitespace-nowrap rounded-lg px-4 py-3 text-gray-700 transition-all duration-300 hover:bg-gray-50 hover:text-primary-600 dark:hover:bg-slate-800">
                       {item.label}
                     </span>
                   )}
