@@ -29,7 +29,7 @@ const Search = ({
   }
 
   return (
-    <form onSubmit={handleSubmit} className={cn('relative w-full', className)}>
+    <form onSubmit={handleSubmit} className={cn('relative w-full min-w-0', className)}>
       <div className={cn(
         'relative flex items-center overflow-hidden rounded-full border-2 bg-white/90 transition-all duration-200 dark:bg-slate-900/90',
         focused
@@ -54,7 +54,7 @@ const Search = ({
             if (onBlur) onBlur(e)
           }}
           className={cn(
-            '!w-full !rounded-full !border-0 !bg-transparent !py-3 !pl-10 !pr-10 text-sm !shadow-none !ring-0 focus:!border-0 focus:!ring-0',
+            '!w-full !min-w-0 !rounded-full !border-0 !bg-transparent !py-3 !pl-10 !pr-10 text-sm !shadow-none !ring-0 focus:!border-0 focus:!ring-0',
             focused ? 'placeholder-gray-400' : 'placeholder-gray-500 dark:placeholder-gray-400'
           )}
           disabled={isLoading}

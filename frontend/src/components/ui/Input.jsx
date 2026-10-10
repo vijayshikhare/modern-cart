@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Loader2, X } from 'lucide-react'
 import { cn } from '../../utils/cn' // Assume cn utility for conditional classes
 
@@ -18,11 +18,7 @@ const Input = ({
   ...props
 }) => {
   const [focused, setFocused] = useState(false)
-  const [localValue, setLocalValue] = useState(value || '')
-
-  useEffect(() => {
-    setLocalValue(value ?? '')
-  }, [value])
+  const [localValue, setLocalValue] = useState(value ?? '')
 
   const inputValue = useMemo(() => (value !== undefined ? value : localValue), [value, localValue])
 
@@ -59,7 +55,7 @@ const Input = ({
   }
 
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex w-full min-w-0 items-center">
       {iconLeft && (
         <div className="absolute left-3 pointer-events-none">
           {iconLeft}
@@ -74,6 +70,7 @@ const Input = ({
         onBlur={() => setFocused(false)}
         className={cn(
           baseClasses,
+          'min-w-0',
           iconLeft && 'pl-10',
           (iconRight || showClear || loading) && 'pr-10',
           focused && 'ring-offset-1 ring-offset-white shadow-md'

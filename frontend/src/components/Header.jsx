@@ -397,7 +397,7 @@ const Header = ({ theme = 'light', toggleTheme }) => {
             </Link>
 
             {/* Desktop Search */}
-            <div className="relative mx-4 hidden flex-1 max-w-2xl lg:flex" ref={searchRef}>
+            <div className="relative mx-4 hidden min-w-0 max-w-2xl flex-1 lg:flex" ref={searchRef}>
               <Search 
                 value={searchQuery} 
                 onChange={(e) => setSearchQuery(e.target.value)} 
@@ -405,7 +405,7 @@ const Header = ({ theme = 'light', toggleTheme }) => {
                 onFocus={handleSearchFocus}
                 onBlur={handleSearchBlur}
                 isLoading={searchLoading}
-                placeholder="Search products, blog, deals, services..."
+                placeholder="Search products, blog, or deals..."
                 className="w-full min-w-[280px]"
               />
 
