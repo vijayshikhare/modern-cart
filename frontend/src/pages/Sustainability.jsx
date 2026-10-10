@@ -4,9 +4,9 @@ import PageHero from '../components/layout/PageHero'
 
 const Sustainability = () => {
   const stats = [
-    { icon: Users, label: 'Happy Customers', value: '1M+' },
-    { icon: Award, label: 'Trees Planted', value: '50K+' },
-    { icon: Truck, label: 'Carbon Neutral', value: '100%' },
+    { icon: Users, label: 'Product stories', value: 'Clear' },
+    { icon: Award, label: 'Buying guidance', value: 'Useful' },
+    { icon: Truck, label: 'Packaging mindset', value: 'Considered' },
   ]
 
   const initiatives = [
@@ -22,7 +22,7 @@ const Sustainability = () => {
         subtitle="At ProShop, every purchase powers positive change. Join us in building a greener future."
         tone="green"
         badge="Our commitment"
-        backgroundImage="https://picsum.photos/seed/sustainability-hero/1400/500"
+        backgroundImage="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=2200&q=85"
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Sustainability' }
@@ -54,7 +54,7 @@ const Sustainability = () => {
           <div className="surface-card p-8 text-center">
             <h2 className="section-title text-3xl mb-6">Our Sustainability Story</h2>
             <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              Since 2025, ProShop has been more than an e-commerce platform—it's a movement. We partner with ethical brands, use recycled packaging, and offset every delivery's carbon footprint. Every click plants a tree, every order supports fair trade. Join us in making shopping sustainable.
+              ProShop is built around a simple idea: better shopping starts with better information. We are creating space for thoughtful products, clearer product stories, and buying decisions that feel good long after delivery.
             </p>
           </div>
         </section>

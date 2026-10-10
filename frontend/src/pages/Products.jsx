@@ -74,7 +74,7 @@ const Products = () => {
   }, [appliedSearch, filter, selectedCategories, sort, currentPage]) // Added selectedCategories to deps
 
   // Categories from seeded data (match exactly)
-  const categories = ['All', 'Electronics', 'Fashion', 'Home & Garden']
+  const categories = ['All', 'Electronics', 'Fashion', 'Home & Garden', 'Books', 'Sports']
 
   const handlePageChange = (page) => {
     setCurrentPage(page)
@@ -116,7 +116,7 @@ const Products = () => {
   const handleAddToCart = async (product) => {
     try {
       await addToCart(product, 1) // Pass quantity 1
-    } catch (err) {
+    } catch {
       setError('Failed to add to cart. Please try again.')
     }
   }
@@ -124,7 +124,7 @@ const Products = () => {
   const handleAddToWishlist = async (product) => {
     try {
       await addToWishlist(product)
-    } catch (err) {
+    } catch {
       setError('Failed to add to wishlist. Please try again.')
     }
   }

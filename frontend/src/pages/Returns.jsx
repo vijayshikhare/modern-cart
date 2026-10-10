@@ -11,7 +11,7 @@ const Returns = () => {
         subtitle="Transparent returns and fast refunds for stress-free shopping."
         tone="blue"
         badge="Last updated: January 20, 2026"
-        backgroundImage="https://picsum.photos/seed/returns-hero/1400/500"
+        backgroundImage="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=2200&q=85"
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Returns' }
@@ -61,7 +61,7 @@ const Returns = () => {
             </p>
             <div className="bg-gray-50 p-4 rounded-lg">
               <p className="text-sm text-gray-600 font-medium">Contact Support</p>
-              <p className="text-sm text-gray-700">Email: support@proshop.com | Phone: 1-800-PROSHOP</p>
+              <p className="text-sm text-gray-700">Start a support request from the <Link to="/contact" className="text-primary-600 hover:underline">Contact page</Link>.</p>
             </div>
           </section>
         </div>

@@ -11,7 +11,7 @@ const TermsOfService = () => {
         subtitle="The terms governing your use of ProShop services and purchases."
         tone="slate"
         badge="Last updated: January 20, 2026"
-        backgroundImage="https://picsum.photos/seed/terms-hero/1400/500"
+        backgroundImage="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=2200&q=85"
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Terms of Service' }

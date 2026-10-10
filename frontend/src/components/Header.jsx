@@ -561,7 +561,7 @@ const Header = ({ theme = 'light', toggleTheme }) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:block" aria-label="Main navigation">
-            <div className="flex justify-start gap-1 overflow-x-auto border-t border-gray-100 py-3 [scrollbar-width:none] dark:border-slate-800 lg:justify-center">
+            <div className="flex flex-wrap justify-start gap-1 border-t border-gray-100 py-3 dark:border-slate-800 lg:justify-center">
               {navItems.map((item, i) => (
                 <div key={i} className="relative group">
                   {item.to ? (

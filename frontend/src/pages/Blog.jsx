@@ -7,7 +7,7 @@ import { apiUrl } from '../utils/api'
 
 const Blog = () => {
   const [search, setSearch] = useState('')
-  const [view, setView] = useState('grid')
+  const view = 'grid'
   const [products, setProducts] = useState([])
 
   useEffect(() => {
@@ -28,9 +28,9 @@ const Blog = () => {
   const posts = useMemo(() => {
     if (!products.length) {
       return [
-        { id: 1, title: 'Top Sustainable Fashion Trends for 2025', excerpt: 'Explore eco-friendly materials and ethical brands shaping the future.', date: 'Jan 10, 2026', author: 'ProShop Editorial', image: 'https://picsum.photos/seed/blog-fallback-1/400/200' },
-        { id: 2, title: 'How Blockchain is Revolutionizing E-Commerce', excerpt: 'Secure and transparent shopping: The tech behind the next wave.', date: 'Jan 5, 2026', author: 'ProShop Editorial', image: 'https://picsum.photos/seed/blog-fallback-2/400/200' },
-        { id: 3, title: 'Best Smart Home Gadgets Under $100', excerpt: 'Voice search and AR integration for modern living.', date: 'Dec 30, 2025', author: 'ProShop Editorial', image: 'https://picsum.photos/seed/blog-fallback-3/400/200' },
+        { id: 1, title: 'How to build a smaller, better wardrobe', excerpt: 'Explore versatile pieces and better buying habits for everyday dressing.', date: 'Jan 10, 2026', author: 'ProShop Editorial', image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85' },
+        { id: 2, title: 'The useful tech edit for focused homes', excerpt: 'Small upgrades that make modern routines calmer and more capable.', date: 'Jan 5, 2026', author: 'ProShop Editorial', image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=85' },
+        { id: 3, title: 'A calmer way to shop online', excerpt: 'Simple signals for comparing quality, value, and longevity before you buy.', date: 'Dec 30, 2025', author: 'ProShop Editorial', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=85' },
       ]
     }
 
@@ -38,13 +38,13 @@ const Blog = () => {
       id: product._id || index,
       title: `${product.name}: Buying Guide & Highlights`,
       excerpt: product.description || 'Discover features, value, and why this product is trending right now.',
-      date: new Date(product.createdAt || Date.now()).toLocaleDateString('en-US', {
+      date: new Date(product.createdAt || '2026-01-01').toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
         day: 'numeric'
       }),
       author: 'ProShop Editorial',
-      image: product.image || `https://picsum.photos/seed/blog-${index + 1}/400/200`
+      image: product.image || 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=85'
     }))
   }, [products])
 

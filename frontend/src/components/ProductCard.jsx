@@ -19,7 +19,7 @@ const ProductCard = ({ product, isDeal = false, view = 'grid' }) => {
   const productId = product._id || product.id
   const isWishlisted = wishlist.some(item => (item._id || item.id) === productId)
   const isInCartItem = cart.some(item => (item._id || item.id) === productId)
-  const isNew = product.isNew || false // From data
+  const isNew = product.isNew || product.isNewArrival || false
   const rating = product.rating || 4.5 // From data
 
   // Update in-cart state on mount
@@ -105,7 +105,7 @@ const ProductCard = ({ product, isDeal = false, view = 'grid' }) => {
               onClick={handleAddToCart} 
               className="flex-1" 
               disabled={isLoading || isInCart}
-              variant={isInCart ? "outline" : "default"}
+              variant={isInCart ? "outline" : "primary"}
               size="sm"
             >
               {isLoading ? (
@@ -149,7 +149,7 @@ const ProductCard = ({ product, isDeal = false, view = 'grid' }) => {
             seed={productId || product.name}
             src={imageUrl}
             alt={product.name}
-            className="w-full h-48 object-cover group-hover:brightness-90 transition-all duration-300"
+            className="aspect-[4/3] w-full object-cover group-hover:brightness-90 transition-all duration-300"
           />
           <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
@@ -173,7 +173,7 @@ const ProductCard = ({ product, isDeal = false, view = 'grid' }) => {
             onClick={handleAddToCart} 
             className="flex-1" 
             disabled={isLoading || isInCart}
-            variant={isInCart ? "outline" : "default"}
+            variant={isInCart ? "outline" : "primary"}
             size="sm"
           >
             {isLoading ? (

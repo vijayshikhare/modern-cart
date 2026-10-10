@@ -11,7 +11,7 @@ const CookiePolicy = () => {
         subtitle="Understand how cookies power performance, security, and personalization."
         tone="orange"
         badge="Last updated: January 20, 2026"
-        backgroundImage="https://picsum.photos/seed/cookies-hero/1400/500"
+        backgroundImage="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=2200&q=85"
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Cookie Policy' }

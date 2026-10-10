@@ -98,7 +98,7 @@ const Checkout = () => {
         subtitle="Review your order, add shipping details, and place it securely."
         tone="blue"
         badge="Secure checkout"
-        backgroundImage="https://picsum.photos/seed/checkout-hero/1400/500"
+        backgroundImage="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=2200&q=85"
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Cart', to: '/cart' },

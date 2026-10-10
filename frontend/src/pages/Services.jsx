@@ -18,7 +18,7 @@ const Services = () => {
         subtitle="Shop with confidence from checkout to delivery with premium support."
         tone="slate"
         badge="Service excellence"
-        backgroundImage="https://picsum.photos/seed/services-hero/1400/500"
+        backgroundImage="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2200&q=85"
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Services' }

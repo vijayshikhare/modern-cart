@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
         subtitle="How we collect, process, and protect your personal data across ProShop."
         tone="violet"
         badge="Last updated: January 20, 2026"
-        backgroundImage="https://picsum.photos/seed/privacy-hero/1400/500"
+        backgroundImage="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=2200&q=85"
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Privacy Policy' }

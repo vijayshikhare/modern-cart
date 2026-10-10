@@ -11,7 +11,7 @@ const Sitemap = () => {
         subtitle="Navigate every important section of ProShop quickly."
         tone="blue"
         badge="Last updated: January 20, 2026"
-        backgroundImage="https://picsum.photos/seed/sitemap-hero/1400/500"
+        backgroundImage="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2200&q=85"
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Sitemap' }

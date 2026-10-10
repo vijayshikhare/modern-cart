@@ -88,7 +88,7 @@ const createProduct = asyncHandler(async (req, res) => {
   const product = new Product({
     ...req.body,
     // Auto-generate real image URL if not provided (integrate with Unsplash or CDN)
-    image: req.body.image || `https://source.unsplash.com/400x400/?${req.body.name?.toLowerCase() || 'product'}`,
+    image: req.body.image || 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=85',
     user: req.user?._id // If authenticated admin
   })
   const createdProduct = await product.save()
@@ -101,7 +101,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     req.params.id,
     {
       ...req.body,
-      image: req.body.image || `https://source.unsplash.com/400x400/?${req.body.name?.toLowerCase() || 'product'}` // Dynamic image
+      image: req.body.image || 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=85'
     },
     { new: true, runValidators: true }
   ).select('-__v')

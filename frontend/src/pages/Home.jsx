@@ -8,7 +8,6 @@ import { apiUrl } from '../utils/api'
 
 const Home = () => {
   const [heroIndex, setHeroIndex] = useState(0)
-  const [brandIndex, setBrandIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const [products, setProducts] = useState([])
 
@@ -81,13 +80,12 @@ const Home = () => {
 
   const nextHero = () => setHeroIndex((prev) => (prev + 1) % heroSlideCount)
   const prevHero = () => setHeroIndex((prev) => (prev - 1 + heroSlideCount) % heroSlideCount)
-  const nextBrand = () => setBrandIndex((prev) => (prev + 1) % partners.length)
 
   // Mock blog posts for scale
   const blogPosts = [
-    { id: 1, title: 'Top Sustainable Fashion Trends for 2025', excerpt: 'Explore eco-friendly materials...', img: 'https://picsum.photos/seed/blog-1/400/200' },
-    { id: 2, title: 'How Blockchain is Revolutionizing E-Commerce', excerpt: 'Secure and transparent shopping...', img: 'https://picsum.photos/seed/blog-2/400/200' },
-    { id: 3, title: 'Best Smart Home Gadgets Under $100', excerpt: 'Voice search and AR integration...', img: 'https://picsum.photos/seed/blog-3/400/200' },
+    { id: 1, title: 'How to build a smaller, better wardrobe', excerpt: 'A practical guide to choosing versatile pieces that keep working after the first wear.', img: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85' },
+    { id: 2, title: 'The useful tech edit for focused homes', excerpt: 'Small upgrades that reduce friction without adding clutter to your everyday routines.', img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=85' },
+    { id: 3, title: 'A calmer way to shop online', excerpt: 'Simple signals for comparing quality, value, and longevity before you buy.', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=85' },
   ]
 
   // Mock FAQ
@@ -179,27 +177,15 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Top Brands: New carousel section for scale */}
+        {/* Top Brands */}
         <section className={`mb-12 sm:mb-16 ${isVisible ? 'animate-fade-in' : ''}`}>
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Top Brands We Love</h2>
-          <div className="relative overflow-hidden px-4">
-            <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${brandIndex * 25}%)` }}>
-              {partners.concat(partners).map((partner, i) => (
-                <div key={i} className="flex-shrink-0 w-1/3 sm:w-1/4 md:w-1/5 lg:w-1/8 px-2 sm:px-4">
-                  <img 
-                    src={partner.logo} 
-                    alt={partner.name} 
-                    className="w-full h-12 sm:h-16 object-contain opacity-70 hover:opacity-100 transition-opacity mx-auto py-4" 
-                  />
-                </div>
-              ))}
-            </div>
-            <button 
-              onClick={nextBrand} 
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-1 sm:p-2 rounded-full hidden md:block"
-            >
-              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
+          <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4">
+            {partners.map((partner) => (
+              <div key={partner.name} className="flex min-h-16 items-center justify-center rounded-xl border border-slate-200 bg-white/80 px-4 text-sm font-semibold tracking-wide text-slate-600 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary-200 hover:text-primary-700 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:border-primary-700 dark:hover:text-primary-300">
+                {partner.name}
+              </div>
+            ))}
           </div>
         </section>
 
@@ -243,7 +229,7 @@ const Home = () => {
             <div className="text-center p-4 sm:p-6 surface-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
               <Shield className="h-12 w-12 sm:h-16 sm:w-16 text-primary-600 mx-auto mb-4" />
               <h3 className="font-semibold text-lg sm:text-xl mb-2">Secure Payments</h3>
-              <p className="text-gray-600 text-sm sm:text-base">Blockchain-secured & BNPL options.</p>
+              <p className="text-gray-600 text-sm sm:text-base">Clear pricing and protected checkout.</p>
             </div>
             <div className="text-center p-4 sm:p-6 surface-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
               <Clock className="h-12 w-12 sm:h-16 sm:w-16 text-primary-600 mx-auto mb-4" />
@@ -306,22 +292,22 @@ const Home = () => {
         <section className={`mb-12 sm:mb-16 surface-card py-8 sm:py-16 ${isVisible ? 'animate-fade-in' : ''}`}>
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-6">Committed to a Sustainable Future</h2>
-            <p className="text-lg sm:text-xl text-gray-700 dark:text-slate-300 mb-8">In 2025, we're leading with eco-conscious practices. Every purchase plants a tree and supports fair trade.</p>
+            <p className="text-lg sm:text-xl text-gray-700 dark:text-slate-300 mb-8">In 2026, we are making room for better choices: longer-lasting products, considered packaging, and more transparent product stories.</p>
             <div className="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-8 mb-8 sm:mb-12 flex-wrap">
               <div className="text-center">
                 <Users className="h-10 w-10 sm:h-12 sm:w-12 text-green-600 mx-auto mb-2" />
-                <p className="font-bold text-xl sm:text-2xl">1M+</p>
-                <p className="text-gray-600 dark:text-slate-300 text-sm sm:text-base">Happy Customers</p>
+                <p className="font-bold text-xl sm:text-2xl">Curated</p>
+                <p className="text-gray-600 dark:text-slate-300 text-sm sm:text-base">Product selection</p>
               </div>
               <div className="text-center">
                 <Award className="h-10 w-10 sm:h-12 sm:w-12 text-green-600 mx-auto mb-2" />
-                <p className="font-bold text-xl sm:text-2xl">5-Star</p>
-                <p className="text-gray-600 dark:text-slate-300 text-sm sm:text-base">Rated</p>
+                <p className="font-bold text-xl sm:text-2xl">Human</p>
+                <p className="text-gray-600 dark:text-slate-300 text-sm sm:text-base">Support when needed</p>
               </div>
               <div className="text-center">
                 <Truck className="h-10 w-10 sm:h-12 sm:w-12 text-green-600 mx-auto mb-2" />
-                <p className="font-bold text-xl sm:text-2xl">Zero Waste</p>
-                <p className="text-gray-600 dark:text-slate-300 text-sm sm:text-base">Packaging</p>
+                <p className="font-bold text-xl sm:text-2xl">Thoughtful</p>
+                <p className="text-gray-600 dark:text-slate-300 text-sm sm:text-base">Delivery choices</p>
               </div>
             </div>
             <Link to="/sustainability" className="btn-primary px-6 py-3 sm:px-8">Our Impact</Link>

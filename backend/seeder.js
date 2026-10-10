@@ -19,7 +19,7 @@ const sampleProducts = [
   {
     name: 'Dell XPS 13 Laptop',
     price: 999.99,
-    image: 'https://source.unsplash.com/400x400/?laptop,dell,tech',
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=85',
     description: 'Ultra-thin laptop with Intel Core i7, 16GB RAM, 512GB SSD. Perfect for work and entertainment.',
     category: 'Electronics',
     countInStock: 10,
@@ -31,7 +31,7 @@ const sampleProducts = [
   {
     name: 'iPhone 15 Pro',
     price: 999.00,
-    image: 'https://source.unsplash.com/400x400/?iphone,smartphone,apple',
+    image: 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=800&q=85',
     description: 'Latest iPhone with A17 Pro chip, 48MP camera, and titanium frame. Revolutionary performance.',
     category: 'Electronics',
     countInStock: 5,
@@ -44,7 +44,7 @@ const sampleProducts = [
   {
     name: 'Cotton T-Shirt',
     price: 29.99,
-    image: 'https://source.unsplash.com/400x400/?tshirt,cotton,fashion',
+    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85',
     description: 'Comfortable 100% cotton t-shirt in multiple colors. Breathable and machine-washable.',
     category: 'Fashion',
     countInStock: 50,
@@ -56,7 +56,7 @@ const sampleProducts = [
   {
     name: 'Slim Fit Jeans',
     price: 59.99,
-    image: 'https://source.unsplash.com/400x400/?jeans,denim,fashion',
+    image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=85',
     description: 'Classic slim-fit jeans with stretch fabric for all-day comfort. Available in 5 sizes.',
     category: 'Fashion',
     countInStock: 30,
@@ -69,7 +69,7 @@ const sampleProducts = [
   {
     name: 'Modern Floor Lamp',
     price: 89.99,
-    image: 'https://source.unsplash.com/400x400/?lamp,home,interior',
+    image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=85',
     description: 'Stylish LED floor lamp with adjustable height and dimmer. Energy-efficient design.',
     category: 'Home & Garden',
     countInStock: 15,
@@ -81,7 +81,7 @@ const sampleProducts = [
   {
     name: 'Ceramic Vase Set',
     price: 39.99,
-    image: 'https://source.unsplash.com/400x400/?vase,ceramic,home',
+    image: 'https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?auto=format&fit=crop&w=800&q=85',
     description: 'Set of 3 handcrafted ceramic vases for modern decor. Perfect for flowers or as accents.',
     category: 'Home & Garden',
     countInStock: 20,

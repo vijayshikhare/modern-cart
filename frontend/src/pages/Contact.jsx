@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react'
+import { Mail, Github, Globe2, Send, Loader2 } from 'lucide-react'
 import { Button } from '../components/ui/Button'
 import Input from '../components/ui/Input'
 import PageHero from '../components/layout/PageHero'
@@ -26,7 +26,7 @@ const Contact = () => {
         subtitle="We're here to help. Reach out with questions, feedback, or support."
         tone="violet"
         badge="Support team online"
-        backgroundImage="https://picsum.photos/seed/contact-hero/1400/500"
+        backgroundImage="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2200&q=85"
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Contact' }
@@ -42,29 +42,29 @@ const Contact = () => {
               <div className="flex items-center">
                 <Mail className="h-6 w-6 text-primary-600 mr-4" />
                 <div>
-                  <p className="font-semibold">Email</p>
-                  <p className="text-gray-600">hello@proshop.com</p>
+                  <p className="font-semibold">Support requests</p>
+                  <p className="text-gray-600">Use the message form below</p>
                 </div>
               </div>
               <div className="flex items-center">
-                <Phone className="h-6 w-6 text-primary-600 mr-4" />
+                <Github className="h-6 w-6 text-primary-600 mr-4" />
                 <div>
-                  <p className="font-semibold">Phone</p>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="font-semibold">Open source</p>
+                  <a href="https://github.com/vijayshikhare" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-primary-600">github.com/vijayshikhare</a>
                 </div>
               </div>
               <div className="flex items-center">
-                <MapPin className="h-6 w-6 text-primary-600 mr-4" />
+                <Globe2 className="h-6 w-6 text-primary-600 mr-4" />
                 <div>
-                  <p className="font-semibold">Address</p>
-                  <p className="text-gray-600">123 Eco Street, Green City, CA 90210</p>
+                  <p className="font-semibold">Creator website</p>
+                  <a href="https://vijayshikhare.com/" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-primary-600">vijayshikhare.com</a>
                 </div>
               </div>
             </div>
             <div className="surface-card p-6">
               <h3 className="font-semibold mb-2">Business Hours</h3>
-              <p className="text-sm text-gray-600">Mon - Fri: 9AM - 6PM PST</p>
-              <p className="text-sm text-gray-600">Sat - Sun: 10AM - 4PM PST</p>
+              <p className="text-sm text-gray-600">Send a message anytime through the form.</p>
+              <p className="text-sm text-gray-600">We aim to reply within one business day.</p>
             </div>
           </div>
 
